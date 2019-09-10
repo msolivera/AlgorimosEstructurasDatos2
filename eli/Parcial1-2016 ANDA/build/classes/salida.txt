@@ -1,0 +1,9 @@
+Patrón (ana) en posiciones: 
+56
+28
+16
+9
+42
+1
+26
+7

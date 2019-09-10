@@ -1,0 +1,2 @@
+Conclusion: la optimizacion del algoritmo tiene (o puede tener) un impacto mucho mayor sobre el tiempo de ejecucion
+de un programa que el que puedan tener las mejoras de hardware.

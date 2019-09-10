@@ -1,0 +1,91 @@
+1. Desarrollar en seudocódigo un algoritmo que permita agregar una unidad académica al organigrama,recibiendo como parámetros el nombre de la Unidad – “unaEtiqueta” y la etiqueta de la Unidad de la cual ha de depender - “etiquetaPadre” (si ésta es vacía “”, se indica que la nueva Unidad será la raíz del árbol).
+
+TArbol
+insertar (Comparable: unaEtiqueta, Comparable: etiquetaPadre) : boolean
+COM
+si etiquetaPadre = "" hacer
+  raizVieja <- this.raiz()
+  raizNueva <- nuevo TNodoArbol(unaEtiqueta)
+  raizNueva.primerHijo <- raizVieja
+  this.raiz <- raizNueva
+  devolver true
+fin si
+
+si raiz = nulo hacer
+  devolver false
+fin si
+
+devolver raiz.insertar(unaEtiqueta, etiquetaPadre)
+FIN
+
+TNodoArbol
+insertar (Comparable: unaEtiqueta, Comparable: etiquetaPadre) : boolean
+COM
+//caso base: encontre al padre entonces lo inserto
+si this.etiqueta = etiquetaPadre hacer
+  si this.primerHijo = nulo hacer
+    this.primerHijo <- nuevo TNodoArbol(unaEtiqueta)
+    devolver true
+  fin si
+
+  aux <- this.primerHijo
+  mientras aux.hermanoDerecho <> nulo hacer
+    aux <- aux.hermanoDerecho
+  fin mientras
+
+  aux.hermanoDerecho <- nuevo TNodoArbol(unaEtiqueta)
+  devolver true
+fin si
+
+//pasos recursivos
+
+//buscar al padre entre los hijos
+aux <- this.primerHijo
+mientras aux <> nulo hacer
+  si aux.insertar(unaEtiqueta, etiquetaPadre) hacer
+    devolver true
+  fin si
+  aux <- aux.primerHijo
+fin mientras
+
+//buscar al padre entre los hermanos derechos
+aux <- this.hermanoDerecho
+mientras aux <> nulo hacer
+  si aux.insertar(unaEtiqueta, etiquetaPadre) hacer
+    devolver true
+  fin si
+  aux <- aux.hermanoDerecho
+fin mientras
+
+//caso base: no se encontro padre, no se inserta
+devolver false
+FIN
+
+2. Escribir en lenguaje natural el concepto para los casos de prueba para las funciones “Insertar”, “Buscar” y “listarIndentado”
+Insertar:
+i. Insercion exitosa como raiz de un arbol vacio: insertar un nodo como raiz de un arbol vacio.
+ii. Insercion exitosa como raiz de un arbol no vacio: insertar un nodo como raiz de un arbol no vacio.
+iii. Insercion exitosa en un nodo que sea ultimo hermano derecho
+vi. Insercion exitosa en un nodo que sea hermano derecho medio
+v. Insercion exitosa en primer hijo
+vi. Insercion exitosa en ultimo hijo
+vii. Insercion exitosa en primer hermano de hijo medio
+viii. Insercion fallida: no existe padre con etiqueta buscada
+
+Buscar:
+i. Busqueda exitosa de raiz
+ii. Busqueda exitosa de primer hijo
+iii. Busqueda exitosa de hermano medio
+iv. Busqueda exitosa de ultimo hermano
+v. Busqueda exitosa de hijo medio, primer hermano
+vi. Busqueda exitosa de hijo medio, hermano medio
+vii. Busqueda exitosa de hijo medio, ultimo hermano
+viii. Busqueda exitosa de ultimo hijo, primer hermano
+ix. Busqueda exitosa de ultimo hijo, hermano medio
+x. Busqueda exitosa de ultimo hijo, ultimo hermano
+xi. Busqueda fallida: Nodo no existe en arbol
+
+listarIndentado:
+i. Se lista el contenido de un arbol vacio y debe devolver un string vacio
+ii. Se lista el contenido de un arbol solo raiz y debe devoler un string sin indentacion y con la etiqueta de la raiz
+iii. Se lista el contenido de un arbol con varios niveles y el contenido devuelto debe ser el correcto

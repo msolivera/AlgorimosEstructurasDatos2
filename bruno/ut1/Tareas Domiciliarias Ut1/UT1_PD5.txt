@@ -1,0 +1,16 @@
+5.3
+O(N^3)
+
+5.4
+Verdaderas las opciones a y d
+
+5.6
+{x^3 + x, x^4/(x-1)}
+{x^2, x^2 - x}
+{x}
+
+5.7
+a)	El programa A es mas eficiente para valores altos de N ya que el orden 150NLogN responde mejor que N^2 para N > 10000
+b) El programa B
+c) El programa B
+d) No, el programa B respondera mas lento para valores de N mayores a cierto numero...

@@ -1,0 +1,75 @@
+Ejercicio #1
+Desarrollar un algoritmo recursivo que encuentre la suma de las alturas de todos los nodos de un árbol binario.
+Utilizar las convenciones de seudocódigo de la asignatura, y producir un POSTER con:
+Descripción breve en lenguaje natural del algoritmo
+1) Seudocódigo estándar
+a) Precondiciones y postcondiciones
+b) Algoritmo en seudocódigo formal
+2) Análisis detallado del orden del tiempo de ejecución del algoritmo.
+3) Mostrar cómo el algoritmo produce la(s) postcondiciones al ser aplicado sobre la(s) precondiciones.
+
+
+Se calcula en post orden la altura de todos los nodos, almacenando en un vector los resultados.
+Tras haber calculado la altura de la raiz, se devuelve la suma de todos los valores almacenados en el vector.
+1 y 2)
+Metodo de arbol:
+Crear vector de tamaño igual a la cantidad de nodos
+Si no tiene raiz:
+    devolver -1
+Invocar alturaAcumulada sobre la raiz, pasando como parametro el vector
+Devolver sumatoria de todos los elementos del vector
+
+Metodo de nodo:
+Si tiene hijo izq:
+    invocar alturaAcumulada sobre hijo izquierdo
+Si tiene hijo derecho:
+    invocar alturaAcumulada sobre hijo derecho
+almacenar en vector el maximo de las alturas de sus hijos, mas 1
+devolver su altura
+
+a)
+PreCondiciones:
+-El arbol es binario
+-Se conoce la cantidad de nodos del arbol
+PostCondiciones:
+-El arbol permanece intacto
+-El resultado devuelto sera -1 si el arbol es vacio
+-El resultado sera igual a la suma de las alturas de todos los nodos si el arbol no es vacio.
+-El resultado sera 0 si solo tiene raiz
+
+b)
+Metodo de arbol
+alturaAcumulada () de tipo entero
+COM
+si raiz = nulo hacer    O(1)
+    devolver -1 O(1)
+fin si
+alturas <- vector de enteros de tamaño igual a cantidad de nodos    O(1)
+raiz.alturaAcumulada(alturas, [0]) //segundo parametro es un array que almacenara la posicion en la que se encuentra el vector alturas  O(N)
+resultado <- 0  O(1)
+para cada altura en alturas hacer   O(N)
+    resultado <- resultado + altura O(1)
+fin para
+devolver resultado  O(1)
+FIN
+
+O(N), N = cantidad de nodos
+
+
+Metodo de nodo
+alturaAcumulada([alturas] vector de tipo entero, [indice] vector de tipo entero) de tipo entero
+COM
+altIzq, altDer, alt <- 0    O(1)
+si hijoIzq <> nulo hacer    O(1)
+    altIzq <- alturaAcumulada(alturas, indice)  O(N)
+fin si
+si hijoDer <> nulo hacer    O(1)
+    altDer <- alturaAcumulada(alturas, indice)  O(N)
+fin si
+alt <- max(altizq, altDer) + 1  O(1)
+alturas[indice] <- alt  O(1)
+indice <- indice + 1    O(1)
+devolver alt    O(1)
+FIN
+
+O(N), N = cantidad de nodos del subarbol con raiz en este nodo

@@ -1,0 +1,106 @@
+﻿Ejercicio #1
+Escribe en lenguaje natural los algoritmos típicos que utilizas para realizar cálculos a mano y determina el orden del tiempo de ejecución de los mismos:
+a) Sumar dos enteros de N dígitos
+
+Sumo el digito menos significativos de cada cifra y si el resultado es mayor o igual a la base lo divido entre ella, dejo el resto como digito menos significativo del resultado total, y le cociente se suma a los siguientes dos digitos menos significativos de las dos cifras originales.
+O(N), N = cantidad de digitos
+
+
+b) Multiplicar dos enteros de N dígitos
+
+Sean dos numeros enteros de N digitos n1 y n2, multiplico n1 por cada digito de n2, multiplicando el resultado por la base y por x (la posicion del digito de n2 menos 1). Al final sumo todos estos resultados.
+O(N^2), N = cantidad de digitos
+
+
+c) Dividir dos enteros de N dígitos
+
+Multiplico la base-1 por el divisor, y si el resultado no es mayor al dividendo, este es el cociente, y el dividendo menos el resultado es el resto.
+Si el resultado es mayor al dividendo, vuelvo a probar pero con con base-2, luego base -3, hasta 0.
+O(N^2), N = cantidad de digitos del divisor.
+
+
+Ejercicio #2
+Para cada uno de los algoritmos indicados en el ejercicio anterior, desarrolla
+a) Una estructura de datos apropiada para representar el problema, que tenga en cuenta en forma explícita la base del sistema de numeración
+
+Para los tres casos se utilizan un entero para indicar la base del sistema de numeracion, luego dos arrays de n posiciones correspondientes al primer y segundo digito de cada operacion (en la division primero el dividendo)
+
+
+b) Precondiciones y postcondiciones de cada algoritmo
+
+Precondicion general: Cada digito ocupara una posicion del array correspondiendo el indice a la distancia del punto decimal. Ej: 246 = {6,4,2}
+Precondicion general: Si una cifra es negativa, todos los digitos en el array deben estar especificados como negativos. Ej: -12 = {-2, -1}
+Precondicion general: Ambas cifras deben tener la misma cantidad de digitos (los arrays deben tener el mismo largo)
+
+Suma: No hay precondiciones, post condicion: la salida sera un numero entero.
+Multiplicacion: No hay precondiciones, post condicion: la salida sera un numero entero mayor o igual a ambos numeros entrada.
+Division: Precondicion: el divisor no puede ser 0, post condicion: la salida sera un numero entero cuyo valor absoluto sera menor al del divisor.
+
+c) Lenguaje natural de casos de prueba apropiados para verificar el algoritmo
+
+Suma:
+i. 0 + 0 debe ser 0 siempre.
+ii. 0 + n debe ser n siempre.
+iii. Comprobar que la suma de dos cifras cuyo resultado sea conocido de el valor esperado.
+iv. La suma de dos cifras con signo opuesto dara como resultado un numero mayor al menor de ellas y menor al mayor numero de entrada.
+v. La suma de dos cifras negativas dara como resultado una cifra negativa
+
+Multiplicacion:
+i. 0 x 0 debe ser 0 siempre.
+ii. 0 x n debe ser 0 siempre.
+iii. La multiplicacion de dos cifras de igual signo debe dar resultado de signo positivo.
+iv. La multiplicacion de dos cifras de distinto signo debe dar resultado de signo negativo.
+v. Si las dos cifras son distintas de cero, el resultado sera mayor o igual a la mayor de ellas.
+vi. Comprobar resultados conocidos.
+
+Division:
+i. Si el divisor es 0 debe arrojar una excepcion.
+ii. Si las dos cifras son de mismo signo el resultado sera positivo.
+iii. Si las dos cifras son de signo distinto el resultado sera negativo.
+iv. El resultado sera menor o igual al dividendo.
+v. Comprobar resultados conocidos.
+vi. 0 dividido 0 debe dar 0 siempre.
+
+
+d) Algoritmo en seudocódigo detallado
+
+Suma:
+Sumo el digito menos significativo de cada cifra y si el resultado es mayor o igual a la base lo divido entre ella,
+dejo el resto como digito menos significativo del resultado total, y el cociente se suma a los siguientes dos digitos
+menos significativos de las dos cifras originales.
+
+sumar (base de tipo entero, n1 array de tipo entero, n2 array de tipo entero) de tipo entero
+COM
+aux <- 0
+res <- 0
+
+para i<-0 hasta i=n1.largo-1 hacer
+    ni <- n1[i]+n2[i]
+    si ni >= base hacer
+        aux <- ni / base (division entera)
+	res <- res + (aux * base^(i+1))
+	ni <- ni % base (modulo)
+    fin si
+    res <- res + ( ni * base^i)
+fin para
+
+devolver res
+FIN
+
+Multiplicacion:
+Sean dos numeros enteros de N digitos n1 y n2, multiplico n1 por cada digito de n2,
+multiplicando el resultado por la base y por x (la posicion del digito de n2 menos 1).
+Al final sumo todos estos resultados.
+
+multiplicacion (base de tipo entero, n1 array de tipo entero, n2 array de tipo entero) de tipo entero
+COM
+res <- 0
+para cada ni en n2 hacer
+    subRes <- 0
+    para cada nj en n1 hacer
+        nij <- ni * nj
+        si nij >= base hacer
+            aux <- nij / base (division entera)
+            nij <- nij % base (modulo)
+
+e) Análisis detallado del orden del tiempo de ejecución
