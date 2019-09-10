@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args){
         TTrieHashMap trie = new TTrieHashMap();
 
-        String[] palabrasclave = ManejadorArchivosGenerico.leerArchivo("src/ut3_ta6/palabras1.txt");
+        String[] palabrasclave = ManejadorArchivosGenerico.leerArchivo("src/HashTrie/palabras1.txt");
         for (String p : palabrasclave) {
                 trie.insertar(p);
         }        

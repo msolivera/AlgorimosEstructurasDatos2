@@ -24,7 +24,7 @@ public class TriePrefixAEDIIGUI extends javax.swing.JFrame {
      */
     public TriePrefixAEDIIGUI() {
         this.trie           = new TTrieHashMap();        
-        String[] palabras = ManejadorArchivosGenerico.leerArchivo("src/ut3_ta6/palabras1.txt");
+        String[] palabras = ManejadorArchivosGenerico.leerArchivo("src/HashTrie/palabras1.txt");
         for (String p : palabras) {
                 trie.insertar(p);
         }
