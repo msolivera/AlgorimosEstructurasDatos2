@@ -46,20 +46,16 @@ public class BusquedaLinealBinaria {
          if(i>j || i > claves.length -1){
              System.out.println("No se ha encontrado el valor :(");
              return false;
-         }
-         
+         }         
          medio = (i+j)/2;
          if(claves[medio] == x){
              System.out.println("Se ha encontrado el valor!");
              return true;
          }
-         else if(claves[medio] < x){
-             
-             return busquedaBinaria(claves,x,medio+1,j,contadorComparaciones);
-         
+         else if(claves[medio] < x){             
+             return busquedaBinaria(claves,x,medio+1,j,contadorComparaciones);        
          }
-         else{ 
-             
+         else{              
              return busquedaBinaria(claves,x,i,medio-1,contadorComparaciones);
          }
     }

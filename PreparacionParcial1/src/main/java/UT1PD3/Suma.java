@@ -1,12 +1,15 @@
-
-package Domiciliarios.UT1.PD3;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package UT1PD3;
 
 /**
  *
- * @author Bruno Martinez
+ * @author Micaela
  */
 public class Suma {
-    
     /**
      * Constructor
      */
@@ -82,5 +85,5 @@ public  int sumar(int[] valor1,int[] valor2,int base){
         return resultadoFinal;
         }
 }
-
+   
 }
