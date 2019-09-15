@@ -28,8 +28,8 @@ public class TNodoTrieHashMap {
     }
 
     public TNodoTrieHashMap() {
-        hijos       = new HashMap<>();
-        esPalabra   = false;
+        hijos = new HashMap<>();
+        esPalabra = false;
         posicion = -1;
     }
 
@@ -93,7 +93,6 @@ public class TNodoTrieHashMap {
         return nodo;
     }
      private void ocurrenciasPosicionesPatron(String patron, ArrayList<Integer> posiciones, TNodoTrieHashMap nodo) {
-        // TODO completar
         if (nodo != null) {
             if (nodo.esPalabra) {
 
@@ -111,7 +110,6 @@ public class TNodoTrieHashMap {
     }
 
     public void ocurrenciasPosicionesPatron(String patron, ArrayList<Integer> posiciones) {
-         //TODO completar
         TNodoTrieHashMap nodo=this.buscarNodoTrie(patron);
         ocurrenciasPosicionesPatron(patron, posiciones,nodo);        
     }

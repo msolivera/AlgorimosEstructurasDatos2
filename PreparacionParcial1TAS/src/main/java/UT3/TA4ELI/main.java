@@ -16,8 +16,8 @@ public class main {
     public static void main(String args[]){
         
     double [] factores = {0.99}; 
-    String[] clavesInsertar = ManejadorArchivosGenerico.leerArchivo("src/UT3/TA4/claves_insertar.txt");
-    String[] clavesBuscar = ManejadorArchivosGenerico.leerArchivo("src/UT3/TA4/claves_buscar.txt");
+    String[] clavesInsertar = ManejadorArchivosGenerico.leerArchivo("src/main/java/UT3/TA4ELI/claves_insertar.txt");
+    String[] clavesBuscar = ManejadorArchivosGenerico.leerArchivo("src/main/java/UT3/TA4ELI/claves_buscar.txt");
     
           
     for(double factor: factores){

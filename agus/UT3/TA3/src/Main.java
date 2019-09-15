@@ -32,7 +32,8 @@ public class Main {
         medibles[i++] = new MedicionBuscarTrie(trie);
         medibles[i++] = new MedicionBuscarHashMap(hm);
         medibles[i++] = new MedicionBuscarTreeMap(tm);
-        Medicion mi;
+        Medicion mi;  
+        i = 0;
         Object[] params = {REPETICIONES, palabrasBuscar};
         String[] lineas = new String[6];
         lineas[i++] = "algoritmo,tiempo,memoria";
@@ -41,6 +42,7 @@ public class Main {
             mi.print();
             lineas[i++] = mi.getTexto()+";"+mi.getTiempoEjecucion().toString()+";"+mi.getMemoria().toString();
         }
+
         ManejadorArchivosGenerico.escribirArchivo("./src/salida.csv",lineas);
         MedicionPredecirLinkedList listaLinked = new MedicionPredecirLinkedList();
         String prefijo = "cas";

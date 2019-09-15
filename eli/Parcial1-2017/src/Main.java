@@ -11,7 +11,7 @@ public class Main {
      * @param args
      */
     public static void main(String[] args){
-        TArbolTrie trie = new TArbolTrie();
+        TArbolTrie2 trie = new TArbolTrie2();
 
        // CARGAR EN EL TRIE LOS TELÉFONOS Y NOMBRES A PARTIR DEL ARCHIVO ABONADOS.TXT
        String[] telefonosyNombre = ManejadorArchivosGenerico.leerArchivo("src/abonados.txt");
