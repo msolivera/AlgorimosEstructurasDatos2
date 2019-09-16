@@ -1,9 +1,9 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 //import java.util.Collection;
 //import org.junit.After;
 //import org.junit.AfterClass;
@@ -11,11 +11,11 @@
 //import org.junit.BeforeClass;
 //import org.junit.Test;
 //import static org.junit.Assert.*;
-//
-///**
-// *
-// * @author mati
-// */
+
+/**
+ *
+ * @author mati
+ */
 //public class TArbolTrieTest {
 //    
 //    public TArbolTrieTest() {
@@ -36,17 +36,17 @@
 //    @After
 //    public void tearDown() {
 //    }
-//
-//    /**
-//     * Test of buscarDispositivos method, of class TArbolTrie.
-//     */
+
+    /**
+     * Test of buscarDispositivos method, of class TArbolTrie.
+     */
 //    @Test
 //    public void testBuscarDispositivos() {
 //        System.out.println("buscarDispositivos");
 //        String mascaraSubRed = "033";
 //        TArbolTrie instance = new TArbolTrie();
 //        Collection<TDispositivo> resultado = instance.buscarDispositivos(mascaraSubRed);
-//        // Caso vacio
+//         Caso vacio
 //        assertEquals(resultado, null);
 //        
 //        
@@ -54,7 +54,7 @@
 //        TDispositivo dispositivo = new TDispositivo("010.123.234.133", "Juan perez", "");
 //        instance2.insertar(dispositivo);
 //        Collection<TDispositivo> resultado2 = instance2.buscarDispositivos(mascaraSubRed);
-//        // Caso largo 1 sin resultados
+//         Caso largo 1 sin resultados
 //        assertEquals(resultado2.isEmpty(), true);
 //        
 //        
@@ -70,7 +70,7 @@
 //        instance3.insertar(dispositivo5);
 //        instance3.insertar(dispositivo6);
 //        Collection<TDispositivo> resultado3 = instance3.buscarDispositivos(mascaraSubRed);
-//        // Caso largo mayor que 1 sin resultados
+//         Caso largo mayor que 1 sin resultados
 //        assertEquals(resultado3.isEmpty(), true);
 //        
 //        
@@ -86,7 +86,7 @@
 //        instance4.insertar(dispositivo10);
 //        instance4.insertar(dispositivo11);
 //        Collection<TDispositivo> resultado4 = instance4.buscarDispositivos(mascaraSubRed);
-//        // Caso un solo resultado
+//         //Caso un solo resultado
 //        assertEquals(resultado4.size(), 1);
 //        
 //        
@@ -102,7 +102,7 @@
 //        instance5.insertar(dispositivo15);
 //        instance5.insertar(dispositivo16);
 //        Collection<TDispositivo> resultado5 = instance5.buscarDispositivos(mascaraSubRed);
-//        // Caso mas de un resultado
+//         Caso mas de un resultado
 //        assertEquals(resultado5.size(), 3);
 //    }
 //

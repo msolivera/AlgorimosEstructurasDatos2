@@ -21,14 +21,17 @@ public class TNodoTrie implements INodoTrie {
         dispositivo = null;
     }
     
+    @Override
     public INodoTrie[] getHijos(){
         return hijos;
     }
     
+    @Override
     public TDispositivo getDispositivo(){
         return dispositivo;
     }
     
+    @Override
     public void setDispositivo(TDispositivo dispositivo){
         this.dispositivo = dispositivo;
     }

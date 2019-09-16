@@ -19,6 +19,7 @@ public class TNodoTrie2 implements INodoTrie {
     }
 
  
+    @Override
     public LinkedList<TAbonado> buscarTelefonos(String codigoPais, String codigoArea,LinkedList<TAbonado> abonados){
         int contador = 0;
         LinkedList<TAbonado> lista  = abonados;
