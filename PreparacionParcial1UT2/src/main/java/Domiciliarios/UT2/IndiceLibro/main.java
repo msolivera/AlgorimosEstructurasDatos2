@@ -13,7 +13,7 @@ public class main {
      */
     public static void main(String[] args) {
         TArbolTrie arbol=new TArbolTrie();
-        String[] lineas = ManejadorArchivos.leerArchivo("src/Domiciliarios/UT2/IndiceLibro/PalabrasIndice.txt");
+        String[] lineas = ManejadorArchivos.leerArchivo("src/main/java/Domiciliarios/UT2/IndiceLibro/PalabrasIndice.txt");
         for (int i = 0; i < lineas.length; i++) {
             String[] paginas = lineas[i].split(" ");
             for (int j = 0; j < paginas.length; j++) {
@@ -22,7 +22,7 @@ public class main {
             }
             
         }
-        arbol.indizarLibro("src/Domiciliarios/UT2/IndiceLibro/libro.txt");
+        arbol.indizarLibro("src/main/java/Domiciliarios/UT2/IndiceLibro/libro.txt");
         arbol.imprimirIndice();
         
         

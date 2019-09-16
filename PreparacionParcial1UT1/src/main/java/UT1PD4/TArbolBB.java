@@ -122,7 +122,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
     }
 
     @Override
-    public int sumaAlturasNodos() {
+    public int sumaAlturasNodos() {//////////////////////
         if (raiz == null){
             return -1;
         }

@@ -1,0 +1,79 @@
+/* UT2_pd1
+
+########################################################################################################################################
+1) Seudocodigo de insertar(unaEtiqueta, etiquetaPadre) : devuelve true si se inserta correctamente, y false si no se puede insertar.
+
+
+TArbolGenerico.insertar(unaEti, etiPadre) : booleano
+COMIENZA 
+	SI etiPadre = vacio HACER
+		SI raiz = nulo HACER
+			this.raiz <-- nuevo TNodoArbolGenerico(unaEti)
+			devolver VERDADERO
+		SINO 
+			eraRaiz = this.raiz()
+			this.raiz <-- nuevo TNodoArbolGenerico(unaEti)
+			this.raiz.primerHijo = eraRaiz
+			devolver VERDADERO
+		FIN SI
+	SINO SI raiz = nulo HACER
+		devolver FALSO
+	FIN SI
+	devolver raiz.insertar(unaEti, etiPadre)
+FIN
+
+
+TNodoArbolGenerico.insertar(unaEti, etiPadre) : booleano
+COMIENZA 
+	SI this.eti = etiPadre HACER			// CASO BASE cuando estoy en el nodo padre.
+		unHijo <-- this.primerHijo
+		SI unHijo = nulo HACER										// si no tiene hijos, inserto un nuevo nodo como primer hijo
+			this.primerHijo <-- nuevo TNodoArbolGenerico(unaEti)
+			DEVOLVER VERDADERO
+		SINO 
+			MIENTRAS unHijo.siguienteHermano() <> nulo HACER		// sino llego al ultimo y pongo el nuevo nodo como siguiente hermano
+				unHijo <-- unHijo.siguienteHermano()
+			FIN MIENTRAS
+			unHijo.siguienteHermano <-- nuevo TNodoArbolGenerico(unaEti)
+			DEVOLVER VERDADERO			
+		FIN SI
+
+	SINO 										// este nodo no es el padre, hago recursividad
+		primerHijo <-- this.primerHijo				//intento insertar con recursividad
+		MIENTRAS primerHijo <> nulo HACER		
+			inserta <-- primerHijo.insertar(unaEti, etiPadre)
+			SI inserta = VERDADERO HACER
+				devolver VERDADERO
+			SINO
+				primerHijo <-- primerHijo.siguienteHermano()
+			FIN SI
+		FIN MIENTRAS
+	FIN SI
+	devolver FALSO			// no se encontro el padre. 
+FIN
+
+
+########################################################################################################################################
+2) Escribir en lenguaje natural los casos de prueba para insertar, buscar y listarIndentado
+
+	INSERTAR
+
+- dado un arbol con raiz = null, insertar un nodo cuyo padre sea una etiqueta distinta de "" debe retornar Falso y el arbol debe quedar inalterado
+- dado un rabon con raiz = null, insertar un nodo cuyo padre sea una etiqueta vacia "" debe retornar verdadero y ese nodo debe ser la nueva raiz del arbol
+- dado un arbol con nodos, insertar un nodo cuyo padre sea una etiqueta que no existe, debe devolver falso y el arbol debe quedar inalterado
+- dado un arbol con nodos, insertar un nodo cuyo padre existe y no tiene hijos, debe devolver verdadero y el primer hijo de ese nodo debe ser el nuevo nodo
+- dado un arbol con nodos, insertar un nodo cuyo padre exista y tenga hijos debe devolver verdadero, y el ultimo de los hijos debe ser este nuevo nodo
+
+	BUSCAR
+
+- dado un arbol con raiz = null, buscar un nodo debe retornar nulo.
+- dado un arbol con nodos, buscar un nodo existente, debe devolver el nodo buscado y el arbol debe quedar inalterado
+- dado un arbol con nodos, buscar un nodo inexistente, debe devolver nulo y el arbol debe quedar inalterado.
+
+	LISTAR_INDENTADO
+
+- dado un arbol vacio, la impresion debe corresponder con un string vacio. 
+- dado un arbol que contiene solo el nodo raiz, la impresion debe ser unicamente la etiqueta de dicho nodo y sin indentacion
+- dado un arbol con varios nodos, se debe imprimir primero la raiz, y en las lineas siguientes, respetando indentacion, cada hijo y asi sucesivamente. 
+
+

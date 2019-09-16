@@ -1,7 +1,5 @@
 package UT3.TA3ELI;
 
-import UT3.TA3ELI.Medible;
-import UT3.TA3ELI.MedicionBuscarLinkedList;
 import java.util.*;
 
 public class Main {
